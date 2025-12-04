@@ -166,7 +166,7 @@ def bonus_theory():
     print("สาเหตุ:")
     print("- RSA: c = m^e mod n")
     print("- ถ้า m^e < n → c = m^e (ไม่มี mod)")
-    print("- m = ∜c")
+    print("- m = ∛c (cube root เมื่อ e=3)")
     print()
     print("วิธีป้องกัน:")
     print("1. ใช้ e = 65537 (standard)")
