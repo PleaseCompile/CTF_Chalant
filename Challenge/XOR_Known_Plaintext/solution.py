@@ -15,6 +15,18 @@ ciphertext_hex = "000000071711100a0e1f7f22616b722e03061c08791301191a0b3f1f161369
 known_plaintext = "SECURECOMM:v2.1|FROM:"
 
 
+# ===== QUICK SOLUTION (โค้ดสั้นๆ) =====
+def quick_find_key():
+    """โค้ดสั้นๆ หา key (3 บรรทัด)"""
+    c = bytes.fromhex(ciphertext_hex)
+    key = bytes(ord(known_plaintext[i]) ^ c[i] for i in range(len(known_plaintext)))
+    print(f"Key: {key}")  # b'SECRETSECRETSECRETSEC' -> "SECRET"
+
+
+# One-liner หา key:
+# bytes(ord("SECURECOMM:v2.1|FROM:"[i]) ^ bytes.fromhex("000000071711100a0e1f7f22616b722e03061c08791301191a0b3f1f161369232f33222f2b2a310d2c270c23363c3828160b07")[i] for i in range(21))
+
+
 def method1_manual():
     """
     วิธีที่ 1: ทำมือ (Manual Calculation)
@@ -216,6 +228,12 @@ if __name__ == "__main__":
     print("\n" + "=" * 60)
     print(" XOR Known Plaintext Attack - Solution")
     print("=" * 60 + "\n")
+    
+    print("=" * 50)
+    print("🚀 Quick Solution (โค้ดสั้นๆ)")
+    print("=" * 50)
+    quick_find_key()
+    print("\n")
     
     method1_manual()
     print("\n")
