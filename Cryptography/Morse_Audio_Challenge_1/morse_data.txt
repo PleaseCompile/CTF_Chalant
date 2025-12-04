@@ -1,0 +1,26 @@
+# The Radio Operator's Last Transmission
+# ======================================
+# 
+# Original Message (Hidden - For Admin Only):
+# THE_SECRET_MESSAGE_IS_DOTS_AND_DASHES
+#
+# Morse Code Representation:
+# (. = dit/short, - = dah/long)
+# (Space between letters: 3 units)
+# (Space between words: 7 units)
+#
+
+- .... .   ... . -.-. .-. . -   -- . ... ... .- --. .   .. ...   -.. --- - ...   .- -. -..   -.. .- ... .... . ...
+
+# Audio Timing Information:
+# =========================
+# Dit duration: 100ms (short beep)
+# Dah duration: 300ms (long beep)
+# Intra-character space: 100ms
+# Inter-character space: 300ms  
+# Inter-word space: 700ms
+# Frequency: 700 Hz (standard CW tone)
+
+# Decoded Text: THE SECRET MESSAGE IS DOTS AND DASHES
+# Flag: flag{12e5c91b04d63ae4e6252e299d7a0122}
+# (MD5 hash of "DOTS_AND_DASHES")
