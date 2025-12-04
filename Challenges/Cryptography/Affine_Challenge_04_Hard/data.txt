@@ -1,0 +1,46 @@
+=========================================
+  🎭 ORDER OF THE DOUBLE LOCK
+=========================================
+
+TOP SECRET ENCRYPTED MESSAGE:
+
+WSRACHJBNIDFQCRCHPRERGMREW
+
+=========================================
+
+ENCRYPTION PROCESS:
+-------------------
+This message was encrypted TWICE!
+
+Gate 1 (First encryption):
+  Formula: E₁(x) = 5x + 8 (mod 26)
+  "Five multiply, Eight add"
+
+Gate 2 (Second encryption):  
+  Formula: E₂(x) = 7x + 3 (mod 26)
+  "Seven multiply, Three add"
+
+Process:
+  Plaintext → [5x+8] → Intermediate → [7x+3] → Ciphertext
+
+=========================================
+
+ANCIENT WISDOM:
+"Two locks in sequence become one lock
+ with a new combination.
+ 
+ The wise know that:
+ E₂(E₁(x)) = a₂(a₁x + b₁) + b₂
+           = (a₂×a₁)x + (a₂×b₁ + b₂)
+ 
+ Combined key: a = ? , b = ?"
+
+=========================================
+
+DECRYPTION ORDER:
+To decrypt, reverse the process!
+Gate 2 first, then Gate 1.
+
+Or find the combined single key...
+
+=========================================
