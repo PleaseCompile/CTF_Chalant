@@ -1,0 +1,28 @@
+=========================================
+      🕵️ SHADOW SOCIETY - TOP SECRET
+=========================================
+
+CLASSIFIED DOCUMENT #SS-7734
+
+Encrypted Message:
+GAFMCDTHZCHQFDSRHEAFSJDZGFS
+
+-----------------------------------------
+ENCRYPTION NOTE (for members only):
+"Remember: Seven multiply, Three add"
+"Use modulo 26 (alphabet size)"
+
+Formula: E(x) ≡ 7x + 3 (mod 26)
+
+WHY 7? Because GCD(7, 26) = 1
+This makes our cipher REVERSIBLE!
+-----------------------------------------
+
+Additional Notes:
+- To decrypt, find the inverse of 7 mod 26
+- Hint: 7 × ? ≡ 1 (mod 26)
+- Answer: 7 × 15 = 105 = 4×26 + 1 ≡ 1
+
+=========================================
+       BURN AFTER READING
+=========================================

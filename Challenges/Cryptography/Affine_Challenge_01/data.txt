@@ -1,0 +1,18 @@
+====================================
+  📜 ANCIENT STONE TABLET FRAGMENT
+====================================
+
+Encrypted Message:
+ZRCHLIMWUIVSWCVZQIZRUCSPCZ
+
+-------------------------------------
+Corner Numbers: 5, 8
+-------------------------------------
+
+Note from the archaeologist:
+"The formula used by ancient scholars 
+follows the pattern: y = ax + b (mod m)
+where m is the alphabet size (26)
+and 'a' must be coprime with m"
+
+====================================
