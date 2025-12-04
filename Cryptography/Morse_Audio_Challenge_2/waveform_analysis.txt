@@ -1,16 +1,17 @@
-# USS Phantom Emergency Signal Analysis
-# ======================================
-# 
-# Classification: CONFIDENTIAL
-# Analyst: [REDACTED]
-# Date: 2024-XX-XX
-# Location: Pacific Ocean, Depth Unknown
-#
+╔═══════════════════════════════════════════════════════════╗
+║         USS PHANTOM EMERGENCY SIGNAL ANALYSIS             ║
+╚═══════════════════════════════════════════════════════════╝
 
-Signal Analysis Report
-======================
-Time: 00:00:00 - 00:00:45
-Frequency: 750 Hz
+Classification: CONFIDENTIAL
+Analyst: [REDACTED]
+Date: 2024-XX-XX
+Location: Pacific Ocean, Depth Unknown
+
+=====================================================
+SIGNAL PARAMETERS
+=====================================================
+Recording Time: 00:00:00 - 00:00:45
+Carrier Frequency: 750 Hz
 Signal Type: Emergency Beacon
 Pattern Detected: YES
 
@@ -19,104 +20,40 @@ WAVEFORM VISUALIZATION
 =====================================================
 
 Pattern Key:
-▄ = Short pulse (~100ms) 
-▄▄▄ = Long pulse (~300ms)
-[space] = Inter-element gap
-|     | = Word separator
+  ▄   = Short pulse (~100ms) 
+  ▄▄▄ = Long pulse (~300ms)
+  [space between groups] = Letter separator
+  |     | = Word separator
 
 =====================================================
-
-▄ ▄ ▄ ▄   ▄   ▄▄▄ ▄▄▄ ▄▄▄   ▄▄▄ ▄ ▄▄▄ ▄       |     |       ▄▄▄ ▄▄▄   ▄       |     |       ▄▄▄   ▄ ▄ ▄ ▄   ▄   |     |       ▄▄▄ ▄▄▄ ▄▄▄   ▄▄▄ ▄▄▄ ▄   ▄   ▄ ▄ ▄   ▄▄▄
-
-=====================================================
-SIGNAL BREAKDOWN (For Technical Analysis)
-=====================================================
-
-Segment 1: ▄ ▄ ▄ ▄
-Segment 2: ▄
-Segment 3: ▄▄▄ ▄▄▄ ▄▄▄
-Segment 4: ▄▄▄ ▄ ▄▄▄ ▄
-[WORD BREAK]
-Segment 5: ▄▄▄ ▄▄▄
-Segment 6: ▄
-[WORD BREAK]
-Segment 7: ▄▄▄
-Segment 8: ▄ ▄ ▄ ▄
-Segment 9: ▄
-[WORD BREAK]
-Segment 10: ▄▄▄ ▄▄▄ ▄▄▄
-Segment 11: ▄▄▄ ▄▄▄ ▄
-Segment 12: ▄
-Segment 13: ▄ ▄ ▄
-Segment 14: ▄▄▄
-
-=====================================================
-ALTERNATIVE TEXT REPRESENTATION
-=====================================================
-
-Using standard notation (. and -):
-
-.... .   --- -.-.       -- .       - .... .       --- --. . ... -
-
-With proper spacing:
-.... . --- -.-.   -- .   - .... .   --- --. . ... -
-
-=====================================================
-# ADMIN NOTES (Hidden from participants)
-=====================================================
-# 
-# Decoded Message: HELP ME THE OCEAN
-# Wait... let me recalculate...
-# 
-# Correct breakdown:
-# .... = H
-# . = E
-# --- = O (wait, should be L for HELP)
-#
-# Actually the message is: HERO ME THE OGEST
-# That doesn't make sense...
-#
-# Let me re-encode properly:
-# 
-# Target Message: SAVE THE SUBMARINE
-# Morse: 
-# S = ...
-# A = .-
-# V = ...-
-# E = .
-# (space)
-# T = -
-# H = ....
-# E = .
-# (space)
-# S = ...
-# U = ..-
-# B = -...
-# M = --
-# A = .-
-# R = .-.
-# I = ..
-# N = -.
-# E = .
-#
-# Full Morse: ... .- ...- .   - .... .   ... ..- -... -- .- .-. .. -. .
-#
-# Keyword for flag: SUBMARINE
-# MD5("SUBMARINE") = 837c37407b42beedaebb7a83e94207d4
-#
-
-=====================================================
-CORRECTED WAVEFORM DATA
+CAPTURED SIGNAL
 =====================================================
 
 ▄ ▄ ▄   ▄ ▄▄▄   ▄ ▄ ▄ ▄▄▄   ▄       |     |       ▄▄▄   ▄ ▄ ▄ ▄   ▄       |     |       ▄ ▄ ▄   ▄ ▄ ▄▄▄   ▄▄▄ ▄ ▄ ▄   ▄▄▄ ▄▄▄   ▄ ▄▄▄   ▄ ▄▄▄ ▄   ▄ ▄   ▄▄▄ ▄   ▄
 
 =====================================================
-STANDARD NOTATION
+SIGNAL BREAKDOWN (For Technical Analysis)
 =====================================================
 
-... .- ...- .   - .... .   ... ..- -... -- .- .-. .. -. .
+Segment 1:  ▄ ▄ ▄
+Segment 2:  ▄ ▄▄▄
+Segment 3:  ▄ ▄ ▄ ▄▄▄
+Segment 4:  ▄
+[WORD BREAK]
+Segment 5:  ▄▄▄
+Segment 6:  ▄ ▄ ▄ ▄
+Segment 7:  ▄
+[WORD BREAK]
+Segment 8:  ▄ ▄ ▄
+Segment 9:  ▄ ▄ ▄▄▄
+Segment 10: ▄▄▄ ▄ ▄ ▄
+Segment 11: ▄▄▄ ▄▄▄
+Segment 12: ▄ ▄▄▄
+Segment 13: ▄ ▄▄▄ ▄
+Segment 14: ▄ ▄
+Segment 15: ▄▄▄ ▄
+Segment 16: ▄
 
 =====================================================
-END OF REPORT
+END OF ANALYSIS REPORT
 =====================================================
