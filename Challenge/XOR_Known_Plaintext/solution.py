@@ -24,7 +24,7 @@ def quick_find_key():
 
 
 # One-liner หา key:
-# bytes(ord("SECURECOMM:v2.1|FROM:"[i]) ^ bytes.fromhex("000000071711100a0e1f7f22616b722e03061c08791301191a0b3f1f161369232f33222f2b2a310d2c270c23363c3828160b07")[i] for i in range(21))
+# print(bytes(ord("SECURECOMM:v2.1|FROM:"[i]) ^ bytes.fromhex("000000071711100a0e1f7f22616b722e03061c08791301191a0b3f1f161369232f33222f2b2a310d2c270c23363c3828160b07")[i] for i in range(21)))
 
 
 def method1_manual():
