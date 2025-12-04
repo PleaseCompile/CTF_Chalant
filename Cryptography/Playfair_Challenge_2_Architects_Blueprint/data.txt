@@ -1,0 +1,9 @@
+# The Architect's Secret Blueprint
+# Sir Charles W.'s encrypted message
+#
+# The building he loved most: KINGDOM HALL
+# Key (after removing duplicates): KINGDOMHAL
+#
+# Can you decode the architect's final secret?
+
+MNNZNPGSSQSA
