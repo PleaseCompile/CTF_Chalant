@@ -1,0 +1,50 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              UNICODE TRANSLATION SYSTEM v2.3                   ║
+║           "Bridging Languages Across the Internet"             ║
+╠═══════════════════════════════════════════════════════════════╣
+║  This system converts international text to ASCII format       ║
+║  using Bootstring algorithm (RFC 3492)                         ║
+╚═══════════════════════════════════════════════════════════════╝
+
+────────────────────────────────────────────────────────────────
+ MESSAGE LOG - Intercepted Communications
+────────────────────────────────────────────────────────────────
+
+[MSG #1] Standard Greeting
+Input:  [CONVERTED TO ASCII]
+Output: l3c1bib8a0a
+Status: Translation complete
+
+[MSG #2] Welcome Message  
+Input:  [CONVERTED TO ASCII]
+Output: l3cckcf7bl2ftbxn5v
+Status: Translation complete
+
+[MSG #3] Identity Tag
+Input:  [CONVERTED TO ASCII]
+Output: 12ca4e2dn1h
+Status: Translation complete
+
+[MSG #4] ★ CLASSIFIED DATA ★
+Input:  [CONVERTED TO ASCII]
+Output: 8806bc86bb52331ed1043c0a1f13dd50-ek7g0t
+Status: Translation complete
+Classification: TOP SECRET
+
+────────────────────────────────────────────────────────────────
+ SYSTEM NOTE
+────────────────────────────────────────────────────────────────
+
+These messages were originally written in Thai language.
+The conversion system transforms non-ASCII characters into
+a format compatible with legacy internet protocols.
+
+The encoding method used here is the same as what powers
+international domain names on the internet.
+
+Think about it: how do Thai domain names like "ไทย.th" 
+actually work on the internet?
+
+────────────────────────────────────────────────────────────────
+ END OF LOG
+────────────────────────────────────────────────────────────────
