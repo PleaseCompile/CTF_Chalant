@@ -68,8 +68,8 @@ def method2_codecs():
     print(f"Decoded: {decoded}")
     
     # Extract hash (after Thai characters)
-    # ธงคือ = "flag is" in Thai (5 unicode code points)
-    flag_hash = decoded[5:]  # Skip Thai characters
+    # Use replace() for consistency and robustness with Thai characters
+    flag_hash = decoded.replace("ธงคือ", "")  # Remove Thai prefix "ธงคือ" (means "flag is")
     print(f"\n🚩 FLAG: flag{{{flag_hash}}}")
 
 

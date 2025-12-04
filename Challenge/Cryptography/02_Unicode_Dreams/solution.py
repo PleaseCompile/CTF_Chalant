@@ -65,9 +65,10 @@ def method2_codecs():
     print(f"Target: {target}")
     print(f"Decoded: {decoded}")
     
-    # The Thai character ธง means "flag"
+    # The Thai character ธง means "flag" in English
     print("\nธง (Thai) = 'flag' (English)")
-    flag_hash = decoded[2:]  # Skip ธง (2 characters)
+    # Use replace() for robustness with Thai characters
+    flag_hash = decoded.replace("ธง", "")  # Remove Thai prefix "ธง" (means "flag")
     print(f"\n🚩 FLAG: flag{{{flag_hash}}}")
 
 

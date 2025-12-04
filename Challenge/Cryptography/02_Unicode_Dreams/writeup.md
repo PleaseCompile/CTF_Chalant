@@ -66,7 +66,7 @@ Punycode string ประกอบด้วย:
 ```python
 encoded = "8806bc86bb52331ed1043c0a1f13dd50-ek7g0t"
 decoded = encoded.encode('ascii').decode('punycode')
-print(decoded)  # ธง8806bc86bb52331ed1043c0a1f13dd50
+print(decoded)  # ธง8806bc86bb52331ed1043c0a1f13dd50 (ธง = "flag" in Thai)
 ```
 
 ### ขั้นตอนที่ 5: แปลความหมาย
