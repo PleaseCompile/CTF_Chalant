@@ -1,4 +1,12 @@
-# Unicode Dreams - Writeup
+# Unicode Dreams - Writeup (HARD MODE)
+
+## ⚠️ ระดับความยาก: HARD
+
+โจทย์นี้ใช้การเข้ารหัสแบบ **2 ชั้น (Two-Layer Encoding)**:
+1. **Layer 1:** Punycode (Unicode → ASCII)
+2. **Layer 2:** Base64 (ซ่อน Punycode)
+
+---
 
 ## 📚 พื้นฐานที่ต้องรู้ (สอนตั้งแต่ 0)
 
@@ -6,30 +14,21 @@
 
 **Punycode** เป็น encoding ที่ใช้แปลง Unicode characters ให้เป็น ASCII format โดยอิงตาม **Bootstring algorithm** ที่ถูกกำหนดไว้ใน RFC 3492
 
-### โครงสร้างของ Punycode String
+### Base64 คืออะไร?
 
-Punycode string ประกอบด้วย:
+**Base64** เป็นการเข้ารหัสที่แปลงข้อมูล binary ให้เป็น ASCII text ใช้ตัวอักษร A-Z, a-z, 0-9, +, / และ = สำหรับ padding
 
-```
-[ASCII_characters]-[encoded_unicode]
-```
-
-| ส่วน | คำอธิบาย |
-|------|----------|
-| ASCII characters | ตัวอักษร ASCII ที่มีในข้อความต้นฉบับ |
-| `-` | Delimiter ที่แยก ASCII กับ encoded part |
-| encoded unicode | ตัวอักษร Unicode ที่ถูก encode |
-
-### ตัวอย่างโครงสร้าง
+### โครงสร้างของการเข้ารหัสสองชั้น
 
 ```
-8806bc86bb52331ed1043c0a1f13dd50-ek7g0t
-├── 8806bc86bb52331ed1043c0a1f13dd50  ← ASCII (MD5 hash)
-├── -                                  ← Delimiter
-└── ek7g0t                             ← Encoded Thai: ธง
+Original Thai text
+       ↓
+   [Punycode]
+       ↓
+    [Base64]
+       ↓
+ Final Output (data.txt)
 ```
-
-เมื่อ decode จะได้: `ธง8806bc86bb52331ed1043c0a1f13dd50`
 
 ---
 
@@ -40,135 +39,154 @@ Punycode string ประกอบด้วย:
 จาก `data.txt` พบข้อมูลที่ถูก encode:
 
 ```
-[MSG #1] Output: l3c1bib8a0a
-[MSG #2] Output: l3cckcf7bl2ftbxn5v
-[MSG #3] Output: 12ca4e2dn1h
-[MSG #4] Output: 8806bc86bb52331ed1043c0a1f13dd50-ek7g0t  ★ CLASSIFIED ★
+[MSG #1] Output: bDNjMWJpYjhhMGE=
+[MSG #2] Output: bDNjY2tjZjdibDJmdGJ4bjV2
+[MSG #3] Output: MTJjYTRlMmRuMWg=
+[MSG #4] Output: MWMzOTI1NWIxZmY0MDZhNjkzYzQwYWZmZmJhNTE2N2UtZWs3ZzB0  ★ CLASSIFIED ★
 ```
 
 ### ขั้นตอนที่ 2: หา Clues จากโจทย์
 
 จาก description และ hints:
 - "Bootstring algorithm" → RFC 3492 → Punycode!
-- "Unicode to ASCII conversion for internet protocols"
-- "international domain names"
-- "Thai language"
+- "SECURITY UPDATE: Output is now Base64 encoded for transport" → Base64!
+- ต้อง decode 2 ชั้น!
 
 ### ขั้นตอนที่ 3: สังเกต Pattern
 
 ข้อสังเกต:
-1. ข้อความที่ 4 มี `-` delimiter ซึ่งแสดงว่ามี ASCII part และ unicode part
-2. `8806bc86bb52331ed1043c0a1f13dd50` ดูเหมือน MD5 hash (32 characters hex)
-3. `ek7g0t` น่าจะเป็น encoded unicode
+1. ข้อมูลดูเหมือน Base64 (ตัวอักษร A-Za-z0-9+/ และ = padding)
+2. System note บอกว่า outputs ถูก "wrapped in Base64"
+3. ต้อง unwrap Base64 ก่อน แล้วค่อย decode Punycode
 
-### ขั้นตอนที่ 4: Decode ข้อความ
+### ขั้นตอนที่ 4: Decode สองชั้น
+
+#### Step 1: Base64 Decode
 
 ```python
-encoded = "8806bc86bb52331ed1043c0a1f13dd50-ek7g0t"
-decoded = encoded.encode('ascii').decode('punycode')
-print(decoded)  # ธง8806bc86bb52331ed1043c0a1f13dd50 (ธง = "flag" in Thai)
+import base64
+b64_encoded = "MWMzOTI1NWIxZmY0MDZhNjkzYzQwYWZmZmJhNTE2N2UtZWs3ZzB0"
+punycode_str = base64.b64decode(b64_encoded).decode('ascii')
+print(punycode_str)
+# Output: 1c39255b1ff406a693c40afffba5167e-ek7g0t
+```
+
+#### Step 2: Punycode Decode
+
+```python
+decoded = punycode_str.encode('ascii').decode('punycode')
+print(decoded)
+# Output: ธง1c39255b1ff406a693c40afffba5167e (ธง = "flag" in Thai)
 ```
 
 ### ขั้นตอนที่ 5: แปลความหมาย
 
 `ธง` ในภาษาไทย แปลว่า "flag"
 
-ดังนั้น: `ธง8806bc86bb52331ed1043c0a1f13dd50` = `flag{8806bc86bb52331ed1043c0a1f13dd50}`
+ดังนั้น: `ธง1c39255b1ff406a693c40afffba5167e` = `flag{1c39255b1ff406a693c40afffba5167e}`
 
 ---
 
 ## 💻 วิธีแก้หลายแบบ
 
-### วิธี A: Python One-liner
+### วิธี A: Python Script (Complete)
 
 ```python
-print("8806bc86bb52331ed1043c0a1f13dd50-ek7g0t".encode('ascii').decode('punycode'))
-```
+import base64
 
-### วิธี B: Decode ทุกข้อความ
-
-```python
-messages = [
-    "l3c1bib8a0a",
-    "l3cckcf7bl2ftbxn5v",
-    "12ca4e2dn1h",
-    "8806bc86bb52331ed1043c0a1f13dd50-ek7g0t"
+b64_messages = [
+    "bDNjMWJpYjhhMGE=",
+    "bDNjY2tjZjdibDJmdGJ4bjV2",
+    "MTJjYTRlMmRuMWg=",
+    "MWMzOTI1NWIxZmY0MDZhNjkzYzQwYWZmZmJhNTE2N2UtZWs3ZzB0"
 ]
 
-for msg in messages:
-    decoded = msg.encode('ascii').decode('punycode')
-    print(f"{msg} → {decoded}")
+for b64_msg in b64_messages:
+    # Step 1: Base64 decode
+    punycode_str = base64.b64decode(b64_msg).decode('ascii')
+    # Step 2: Punycode decode
+    decoded = punycode_str.encode('ascii').decode('punycode')
+    print(f"{b64_msg} → {punycode_str} → {decoded}")
 ```
 
 **Output:**
 ```
-l3c1bib8a0a → สวัสดี (Hello)
-l3cckcf7bl2ftbxn5v → ยินดีต้อนรับ (Welcome)
-12ca4e2dn1h → นักแฮก (Hacker)
-8806bc86bb52331ed1043c0a1f13dd50-ek7g0t → ธง8806bc86bb52331ed1043c0a1f13dd50
+bDNjMWJpYjhhMGE= → l3c1bib8a0a → สวัสดี (Hello)
+bDNjY2tjZjdibDJmdGJ4bjV2 → l3cckcf7bl2ftbxn5v → ยินดีต้อนรับ (Welcome)
+MTJjYTRlMmRuMWg= → 12ca4e2dn1h → นักแฮก (Hacker)
+MWMzOTI1NWIxZmY0MDZhNjkzYzQwYWZmZmJhNTE2N2UtZWs3ZzB0 → 1c39255b1ff406a693c40afffba5167e-ek7g0t → ธง1c39255b1ff406a693c40afffba5167e
 ```
 
-### วิธี C: Online Tools
+### วิธี B: Python One-liner
 
+```bash
+python3 -c "import base64; print(base64.b64decode('MWMzOTI1NWIxZmY0MDZhNjkzYzQwYWZmZmJhNTE2N2UtZWs3ZzB0').decode().encode('ascii').decode('punycode'))"
+```
+
+### วิธี C: Online Tools (Two Steps)
+
+**Step 1 - Base64 Decode:**
+1. ไปที่ https://www.base64decode.org/
+2. วาง `MWMzOTI1NWIxZmY0MDZhNjkzYzQwYWZmZmJhNTE2N2UtZWs3ZzB0`
+3. ได้: `1c39255b1ff406a693c40afffba5167e-ek7g0t`
+
+**Step 2 - Punycode Decode:**
 1. ไปที่ https://www.punycoder.com/
-2. วาง `8806bc86bb52331ed1043c0a1f13dd50-ek7g0t`
-3. คลิก Decode
-4. ได้: `ธง8806bc86bb52331ed1043c0a1f13dd50`
-
-**หมายเหตุ:** บาง tools อาจต้องเพิ่ม `xn--` prefix
+2. วาง `1c39255b1ff406a693c40afffba5167e-ek7g0t`
+3. ได้: `ธง1c39255b1ff406a693c40afffba5167e`
 
 ---
 
 ## 🎓 สิ่งที่ได้เรียนรู้
 
-1. **Punycode** สามารถ encode โดยไม่มี `xn--` prefix ได้
-2. โครงสร้าง Punycode แยก ASCII และ Unicode ด้วย `-`
-3. ภาษาไทยสามารถ encode/decode ด้วย Punycode ได้
-4. เครื่องมือ decode มีหลายตัวให้เลือกใช้
+1. **Layered Encoding** - การเข้ารหัสหลายชั้น
+2. **Base64** - การเข้ารหัสที่ใช้สำหรับ transport data
+3. **Punycode** สามารถ encode โดยไม่มี `xn--` prefix ได้
+4. การวิเคราะห์ลำดับขั้นตอนการ decode
 
 ---
 
 ## 🔐 Key Takeaways
 
-### ความแตกต่างจากโจทย์ที่ 1
+### เปรียบเทียบกับโจทย์ที่ 1
 
-| หัวข้อ | Challenge 1 | Challenge 2 |
+| หัวข้อ | Challenge 1 | Challenge 2 (HARD) |
 |--------|-------------|-------------|
-| Format | มี `xn--` prefix | ไม่มี prefix |
-| Context | Domain names | Generic text |
-| Structure | Full domain | Raw punycode |
-| Complexity | Single decode | Multiple messages |
+| Encoding Layers | 1 (Punycode only) | 2 (Base64 + Punycode) |
+| Format | มี `xn--` prefix | Base64 wrapped |
+| Context | Domain names | Secure transmission |
+| Difficulty | ⭐⭐ | ⭐⭐⭐⭐ |
 
-### Pattern Recognition
+### Pattern Recognition Tips
 
-- ถ้าเห็น `xn--` → Punycode domain
-- ถ้าเห็น `[ascii]-[code]` → Punycode with mixed content
-- ถ้ามีแต่ตัวอักษร ASCII แต่มี hints เรื่อง unicode → น่าจะเป็น Punycode
+- ถ้าเห็น `=` ที่ท้าย และ ตัวอักษร A-Za-z0-9+/ → น่าจะเป็น Base64
+- ถ้า decode Base64 แล้วเห็น `-` ตามด้วย lowercase letters → น่าจะเป็น Punycode
+- เมื่อเจอการเข้ารหัสหลายชั้น → ให้ decode ทีละชั้น
 
 ---
 
 ## 📚 Further Learning
 
 1. **RFC 3492** - Punycode: A Bootstring encoding of Unicode
-2. **RFC 5891** - IDNA 2008 specification
-3. **Python codecs** - https://docs.python.org/3/library/codecs.html
-4. **Unicode Security** - IDN homograph attacks
+2. **RFC 4648** - Base64 encoding
+3. **Multi-layer encoding** - Techniques in CTF challenges
+4. **CyberChef** - Tool for chaining multiple encodings
 
 ---
 
 ## 🚩 Flag
 
 ```
-flag{8806bc86bb52331ed1043c0a1f13dd50}
+flag{1c39255b1ff406a693c40afffba5167e}
 ```
 
 ---
 
 ## 📋 Full Decoded Messages
 
-| Message | Encoded | Decoded | Meaning |
-|---------|---------|---------|---------|
-| #1 | l3c1bib8a0a | สวัสดี | Hello |
-| #2 | l3cckcf7bl2ftbxn5v | ยินดีต้อนรับ | Welcome |
-| #3 | 12ca4e2dn1h | นักแฮก | Hacker |
-| #4 | 8806bc86bb52331ed1043c0a1f13dd50-ek7g0t | ธง[hash] | Flag |
+| Message | Base64 | Punycode | Thai | Meaning |
+|---------|--------|----------|------|---------|
+| #1 | bDNjMWJpYjhhMGE= | l3c1bib8a0a | สวัสดี | Hello |
+| #2 | bDNjY2tjZjdibDJmdGJ4bjV2 | l3cckcf7bl2ftbxn5v | ยินดีต้อนรับ | Welcome |
+| #3 | MTJjYTRlMmRuMWg= | 12ca4e2dn1h | นักแฮก | Hacker |
+| #4 | MWMzOTI1NWIx... | 1c39255b...-ek7g0t | ธง[hash] | Flag |

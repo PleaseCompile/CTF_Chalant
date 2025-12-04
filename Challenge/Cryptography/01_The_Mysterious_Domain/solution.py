@@ -2,7 +2,7 @@
 The Mysterious Domain - Solution
 ================================
 Challenge: Decode the mysterious xn-- domains
-Flag: flag{7d86bc9b0fb5e7042dbea084e6124d46}
+Flag: flag{1c39255b1ff406a693c40afffba5167e}
 
 Multiple solution methods provided below.
 """
@@ -26,7 +26,7 @@ def method1_python_script():
         "xn--42c8buaqi6de",           # LOG ENTRY 001
         "xn--c3c2aa9a3cb9fudubf",     # LOG ENTRY 002
         "xn--l3ckx7ji",               # LOG ENTRY 003
-        "xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl",  # PRIMARY TARGET
+        "xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl",  # PRIMARY TARGET
     ]
     
     print("=== Method 1: Python Punycode Decode ===\n")
@@ -42,7 +42,7 @@ def method1_python_script():
         print("-" * 40)
     
     # Extract flag from last decoded message
-    last_decoded = "ธงคือ7d86bc9b0fb5e7042dbea084e6124d46"
+    last_decoded = "ธงคือ1c39255b1ff406a693c40afffba5167e"
     flag_hash = last_decoded.replace("ธงคือ", "")  # Remove Thai prefix "ธงคือ" (means "flag is")
     print(f"\n🚩 FLAG: flag{{{flag_hash}}}")
 
@@ -59,7 +59,7 @@ def method2_codecs():
     
     print("\n=== Method 2: Using codecs module ===\n")
     
-    target = "xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl"
+    target = "xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl"
     punycode_part = target[4:]  # Remove 'xn--'
     
     # Using codecs
@@ -88,11 +88,11 @@ def method3_online_tools():
     
     ขั้นตอน:
     1. ไปที่เว็บไซต์ด้านบน
-    2. วาง xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl
+    2. วาง xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl
     3. คลิก Decode
-    4. จะได้: ธงคือ7d86bc9b0fb5e7042dbea084e6124d46
+    4. จะได้: ธงคือ1c39255b1ff406a693c40afffba5167e
     5. 'ธงคือ' คือ 'flag is' ในภาษาไทย
-    6. ดังนั้น flag คือ: flag{7d86bc9b0fb5e7042dbea084e6124d46}
+    6. ดังนั้น flag คือ: flag{1c39255b1ff406a693c40afffba5167e}
     """
     
     print("\n=== Method 3: Online Tools ===\n")
@@ -102,10 +102,10 @@ def method3_online_tools():
     print("3. https://www.browserling.com/tools/punycode-decode")
     print("\nSteps:")
     print("1. Go to any online punycode decoder")
-    print("2. Paste: xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl")
-    print("3. Decode to get: ธงคือ7d86bc9b0fb5e7042dbea084e6124d46")
+    print("2. Paste: xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl")
+    print("3. Decode to get: ธงคือ1c39255b1ff406a693c40afffba5167e")
     print("4. 'ธงคือ' means 'flag is' in Thai")
-    print("\n🚩 FLAG: flag{7d86bc9b0fb5e7042dbea084e6124d46}")
+    print("\n🚩 FLAG: flag{1c39255b1ff406a693c40afffba5167e}")
 
 
 # ============================================
@@ -121,10 +121,10 @@ def method4_command_line():
     
     print("\n=== Method 4: Command Line ===\n")
     print("Option A - Using Python one-liner:")
-    print('python3 -c "print(\'7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl\'.encode(\'ascii\').decode(\'punycode\'))"')
+    print('python3 -c "print(\'1c39255b1ff406a693c40afffba5167e-kh7god82awxrl\'.encode(\'ascii\').decode(\'punycode\'))"')
     print("\nOption B - Using idn command (if available):")
-    print("echo 'xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl' | idn --decode")
-    print("\n🚩 FLAG: flag{7d86bc9b0fb5e7042dbea084e6124d46}")
+    print("echo 'xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl' | idn --decode")
+    print("\n🚩 FLAG: flag{1c39255b1ff406a693c40afffba5167e}")
 
 
 # ============================================
@@ -178,5 +178,5 @@ if __name__ == "__main__":
     bonus_theory()
     
     print("\n" + "=" * 50)
-    print("🎉 FINAL FLAG: flag{7d86bc9b0fb5e7042dbea084e6124d46}")
+    print("🎉 FINAL FLAG: flag{1c39255b1ff406a693c40afffba5167e}")
     print("=" * 50)

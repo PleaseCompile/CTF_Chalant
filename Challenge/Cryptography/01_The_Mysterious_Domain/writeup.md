@@ -46,7 +46,7 @@ xn--c3c2aa9a3cb9fudubf.darkweb.org
 xn--l3ckx7ji.underground.io
 
 [LOG ENTRY 004] ★ PRIMARY TARGET ★
-xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl.secret.net
+xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl.secret.net
 ```
 
 ### ขั้นตอนที่ 2: สังเกต Pattern
@@ -61,30 +61,30 @@ xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl.secret.net
 
 ```python
 # Remove 'xn--' prefix และ decode
-domain = "xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl"
+domain = "xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl"
 punycode_part = domain[4:]  # Remove 'xn--'
 decoded = punycode_part.encode('ascii').decode('punycode')
 print(decoded)
-# Output: ธงคือ7d86bc9b0fb5e7042dbea084e6124d46
+# Output: ธงคือ1c39255b1ff406a693c40afffba5167e
 ```
 
 #### วิธีที่ 2: ใช้ Online Tools
 
 1. ไปที่ https://www.punycoder.com/
-2. วาง `xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl`
+2. วาง `xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl`
 3. คลิก "Decode"
-4. ได้ผลลัพธ์: `ธงคือ7d86bc9b0fb5e7042dbea084e6124d46`
+4. ได้ผลลัพธ์: `ธงคือ1c39255b1ff406a693c40afffba5167e`
 
 ### ขั้นตอนที่ 4: แปลความหมาย
 
-ผลลัพธ์ที่ได้: `ธงคือ7d86bc9b0fb5e7042dbea084e6124d46`
+ผลลัพธ์ที่ได้: `ธงคือ1c39255b1ff406a693c40afffba5167e`
 
 - `ธงคือ` = "flag is" ในภาษาไทย
-- `7d86bc9b0fb5e7042dbea084e6124d46` = MD5 hash
+- `1c39255b1ff406a693c40afffba5167e` = MD5 hash
 
 ### ขั้นตอนที่ 5: สร้าง Flag
 
-รวมกันเป็น: `flag{7d86bc9b0fb5e7042dbea084e6124d46}`
+รวมกันเป็น: `flag{1c39255b1ff406a693c40afffba5167e}`
 
 ---
 
@@ -99,7 +99,7 @@ domains = [
     "xn--42c8buaqi6de",
     "xn--c3c2aa9a3cb9fudubf", 
     "xn--l3ckx7ji",
-    "xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl"
+    "xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl"
 ]
 
 for domain in domains:
@@ -112,13 +112,13 @@ for domain in domains:
 xn--42c8buaqi6de -> ความลับ (secret)
 xn--c3c2aa9a3cb9fudubf -> ซ่อนอยู่ใน (is hidden in)
 xn--l3ckx7ji -> โดเมน (domain)
-xn--7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl -> ธงคือ7d86bc9b0fb5e7042dbea084e6124d46
+xn--1c39255b1ff406a693c40afffba5167e-kh7god82awxrl -> ธงคือ1c39255b1ff406a693c40afffba5167e
 ```
 
 ### วิธี B: Command Line
 
 ```bash
-python3 -c "print('7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl'.encode('ascii').decode('punycode'))"
+python3 -c "print('1c39255b1ff406a693c40afffba5167e-kh7god82awxrl'.encode('ascii').decode('punycode'))"
 ```
 
 ### วิธี C: Online Decoder
@@ -162,5 +162,5 @@ python3 -c "print('7d86bc9b0fb5e7042dbea084e6124d46-kh7god82awxrl'.encode('ascii
 ## 🚩 Flag
 
 ```
-flag{7d86bc9b0fb5e7042dbea084e6124d46}
+flag{1c39255b1ff406a693c40afffba5167e}
 ```
