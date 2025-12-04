@@ -1,0 +1,30 @@
+=========================================
+   🔮 THE ALCHEMIST'S ANCIENT MANUSCRIPT
+=========================================
+
+ENCRYPTED TEXT (from the old book):
+
+SQJUIRFBHNWVASPFWRAQVTRHSJW
+
+=========================================
+
+Notes found on a torn page:
+"This cipher uses LINEAR TRANSFORMATION
+ just like the Greek mathematicians used.
+ 
+ The multiplier and adder are SECRET.
+ But remember... each letter is always
+ replaced by the SAME letter."
+
+=========================================
+
+IMPORTANT: No key values provided!
+You must find them yourself.
+
+Hints:
+- This is a MONOALPHABETIC cipher
+- Try frequency analysis
+- Or brute force all 312 possible keys
+- The message likely starts with "THEFLAG"
+
+=========================================
