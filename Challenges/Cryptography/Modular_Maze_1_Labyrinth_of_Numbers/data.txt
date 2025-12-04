@@ -1,0 +1,62 @@
+# The Labyrinth of Numbers - Encoded Data
+# เขาวงกตแห่งตัวเลข - ข้อมูลที่เข้ารหัส
+
+## Grid Mapping (5x5)
+## ตารางตัวอักษร
+
+    COL: 0   1   2   3   4
+ROW:   +---+---+---+---+---+
+  0    | A | B | C | D | E |
+       +---+---+---+---+---+
+  1    | F | G | H | I | J |
+       +---+---+---+---+---+
+  2    | K | L | M | N | O |
+       +---+---+---+---+---+
+  3    | P | Q | R | S | T |
+       +---+---+---+---+---+
+  4    | U | V | W | X | Y |
+       +---+---+---+---+---+
+
+Grid Size: 5
+Position Format: (row, col)
+
+## Encoded Coordinates (row, col)
+## พิกัดที่เข้ารหัส
+
+START: (0, 0)
+
+SEQUENCE:
+1. (54, 27)
+2. (18, 47)
+3. (35, 25)
+4. (53, 35)
+5. (18, 30)
+6. (45, 39)
+7. (30, 53)
+
+## Rules
+## กฎ
+
+- Grid boundaries: 0 to 4 (inclusive)
+- When coordinates exceed boundaries, they "wrap around"
+- Think of it like a clock... 13:00 = 1:00
+- The boundary value determines the cycle
+
+## Example Calculation
+## ตัวอย่างการคำนวณ
+
+Position (7, 3) with grid size 5:
+- Row: 7 → needs adjustment to fit 0-4
+- Col: 3 → already within bounds
+- Final position: (?, 3)
+- Letter at position: ?
+
+Hint: What mathematical operation gives you the "remainder"?
+
+## Notes
+## หมายเหตุ
+
+- All letters are uppercase in the grid
+- Final answer should be lowercase
+- No spaces in the final decoded message
+- Flag format: flag{md5_hash}
