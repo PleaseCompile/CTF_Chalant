@@ -1,0 +1,13 @@
+ENCRYPTED COMMUNICATION INTERCEPT
+==================================
+Protocol: SECURECOMM v2.1
+Status: ENCRYPTED
+Encryption: XOR (Repeating Key)
+
+Ciphertext (hex):
+000000071711100a0e1f7f22616b722e03061c08791301191a0b3f1f161369232f33222f2b2a310d2c270c23363c3828160b07
+
+Known Header Format:
+SECURECOMM:v2.1|FROM:
+
+Note: All SECURECOMM v2.1 messages begin with this standard header.
