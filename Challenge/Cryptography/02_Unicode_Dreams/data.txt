@@ -1,0 +1,55 @@
+╔═══════════════════════════════════════════════════════════════╗
+║              UNICODE TRANSLATION SYSTEM v2.3                   ║
+║           "Bridging Languages Across the Internet"             ║
+╠═══════════════════════════════════════════════════════════════╣
+║  This system converts international text to ASCII format       ║
+║  using Bootstring algorithm (RFC 3492)                         ║
+║  SECURITY UPDATE: Output is now Base64 encoded for transport   ║
+╚═══════════════════════════════════════════════════════════════╝
+
+────────────────────────────────────────────────────────────────
+ MESSAGE LOG - Intercepted Communications
+────────────────────────────────────────────────────────────────
+
+[MSG #1] Standard Greeting
+Input:  [CONVERTED TO ASCII] → [BASE64 WRAPPED]
+Output: bDNjMWJpYjhhMGE=
+Status: Translation complete
+
+[MSG #2] Welcome Message  
+Input:  [CONVERTED TO ASCII] → [BASE64 WRAPPED]
+Output: bDNjY2tjZjdibDJmdGJ4bjV2
+Status: Translation complete
+
+[MSG #3] Identity Tag
+Input:  [CONVERTED TO ASCII] → [BASE64 WRAPPED]
+Output: MTJjYTRlMmRuMWg=
+Status: Translation complete
+
+[MSG #4] ★ CLASSIFIED DATA ★
+Input:  [CONVERTED TO ASCII] → [BASE64 WRAPPED]
+Output: MWMzOTI1NWIxZmY0MDZhNjkzYzQwYWZmZmJhNTE2N2UtZWs3ZzB0
+Status: Translation complete
+Classification: TOP SECRET
+
+────────────────────────────────────────────────────────────────
+ SYSTEM NOTE
+────────────────────────────────────────────────────────────────
+
+These messages were originally written in Thai language.
+The conversion system transforms non-ASCII characters into
+a format compatible with legacy internet protocols.
+
+The encoding method used here is the same as what powers
+international domain names on the internet.
+
+IMPORTANT: All outputs are now wrapped in Base64 for secure 
+transmission. You must first unwrap the Base64 layer before
+applying the IDN decoding.
+
+Think about it: how do Thai domain names like "ไทย.th" 
+actually work on the internet?
+
+────────────────────────────────────────────────────────────────
+ END OF LOG
+────────────────────────────────────────────────────────────────
