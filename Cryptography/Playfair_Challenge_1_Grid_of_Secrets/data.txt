@@ -1,0 +1,8 @@
+# Encrypted Message from the Secret Archives
+# Found in the underground vault of a European museum
+# 
+# Key: MONARCHY
+# 
+# Decrypt this message to find the flag
+
+GATLMZCLRQXA
