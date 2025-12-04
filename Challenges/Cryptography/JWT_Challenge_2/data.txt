@@ -1,0 +1,61 @@
+=== INTERCEPTED TOKEN ===
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiam9obiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjk5MDAwMDAwfQ.xyz123signature
+
+=== SERVER VERIFICATION CODE (vulnerable) ===
+
+```python
+# server.py - VULNERABLE SERVER SIMULATION
+import base64
+import json
+import hmac
+import hashlib
+
+SECRET_KEY = "super_secret_key_123"
+FLAG = "flag{4lg0r1thm_n0n3_4tt4ck}"
+
+def verify_token(token):
+    """
+    ⚠️ VULNERABLE: This server accepts 'none' algorithm!
+    """
+    parts = token.split('.')
+    if len(parts) != 3:
+        return {"error": "Invalid token format"}
+    
+    # Decode header
+    header_b64 = parts[0]
+    header_b64 += '=' * (4 - len(header_b64) % 4) if len(header_b64) % 4 else ''
+    header = json.loads(base64.urlsafe_b64decode(header_b64))
+    
+    # Decode payload
+    payload_b64 = parts[1]
+    payload_b64 += '=' * (4 - len(payload_b64) % 4) if len(payload_b64) % 4 else ''
+    payload = json.loads(base64.urlsafe_b64decode(payload_b64))
+    
+    # VULNERABILITY: Algorithm 'none' is accepted!
+    if header.get('alg') == 'none':
+        # No signature verification
+        pass
+    elif header.get('alg') == 'HS256':
+        # Verify signature (implementation hidden)
+        signature = parts[2]
+        if not verify_signature(parts[0] + '.' + parts[1], signature):
+            return {"error": "Invalid signature"}
+    else:
+        return {"error": "Unsupported algorithm"}
+    
+    # Check role
+    if payload.get('role') == 'admin':
+        return {"success": True, "message": "Welcome Admin!", "flag": FLAG}
+    else:
+        return {"success": True, "message": f"Welcome {payload.get('user')}!", "flag": "Access denied. Admin only."}
+
+# Run: verify_token("your_crafted_token_here")
+```
+
+=== YOUR MISSION ===
+1. Analyze the original token
+2. Create a forged token with:
+   - algorithm: "none"
+   - role: "admin"
+   - empty signature
+3. Use the verify_token() function to get the flag
