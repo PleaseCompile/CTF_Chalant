@@ -4,7 +4,7 @@
 
 ### Playfair Cipher คืออะไร?
 
-Playfair Cipher เป็นเทคนิคการเข้ารหัสแบบ **polygraphic substitution cipher** ที่เข้ารหัสตัวอักษรทีละคู่ (digraphs) 
+Playfair Cipher เป็นเทคนิคการเข้ารหัสแบบ **polygraphic substitution cipher** ที่เข้ารหัสตัวอักษรทีละคู่ (digraphs)
 
 #### สิ่งที่ Challenge นี้เพิ่มเติมจาก Challenge 1
 - **ต้องค้นหา Key เอง** จาก hints ใน story
